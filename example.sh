@@ -1,5 +1,5 @@
 export CA_CERT_DIR="certs/ca"
-export SIGNED_CERT_DIR="certs/sn"
+export SIGNED_CERT_DIR="certs/signed"
 
 # create a certificate authority and add to
 # local machines authorities

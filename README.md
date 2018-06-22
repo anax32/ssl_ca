@@ -11,12 +11,12 @@ example.sh
 
 Contains an example run through the scripts.
 
-+ ca\ORG_NAME.conf
++ conf\ORG_NAME.conf
 
     config file for the root CA, this creates the crt
 file that needs to be installed on the machine
 
-+ signed\LOCALHOST.conf
++ conf\LOCALHOST.conf
 
     config file for the certificate signed by the CA,
 this creates the file that is used to prove identity
@@ -24,5 +24,5 @@ this creates the file that is used to prove identity
 
 certificates are written to:
 
-+ ca\certs
-+ signed\certs
++ certs\ca
++ certs\signed
