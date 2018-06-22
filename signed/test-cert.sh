@@ -3,7 +3,12 @@
 # run this and go to https://localhost
 PORT_NUMBER=443
 
-(sudo timeout 30 sudo openssl s_server -key certs/$1.key -cert certs/$1.crt -accept $PORT_NUMBER -www) &
+(sudo timeout 30 \
+  sudo openssl s_server \
+    -key $SIGNED_CERT_DIR/$1.key \
+    -cert $SIGNED_CERT_DIR/$1.crt \
+    -accept $PORT_NUMBER \
+    -www) &
 
 sleep 2
 

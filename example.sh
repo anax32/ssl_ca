@@ -1,18 +1,21 @@
+export CA_CERT_DIR="certs/ca"
+export SIGNED_CERT_DIR="certs/sn"
+
 # create a certificate authority and add to
 # local machines authorities
-cd ca
-./create-ca.sh big-org
-./install-ca.sh big-org
-
-cd ..
+ca/create-ca.sh CA_ORG
+ca/install-ca.sh CA_ORG
 
 # create a certificate signed by the ca and test
-cd signed
-./create-signed-certificate.sh localhost ../ca/certs/big-org
-./test-cert.sh localhost
-
-cd ..
+signed/create-signed-certificate.sh LOCALHOST CA_ORG
+signed/test-cert.sh LOCALHOST
 
 # remove the root authority from the machine
-cd ca
-./remove-ca.sh big-org
+ca/remove-ca.sh CA_ORG
+
+# cleanup
+rm -drf $CA_CERT_DIR
+rm -drf $SIGNED_CERT_DIR
+
+# bit of a hack here because rm doesn't remve the certs dir
+rm -drf "certs"
